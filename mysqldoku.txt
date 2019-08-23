@@ -1,0 +1,11 @@
+Mysql/Mariadb dokumentation für mich:
+
+für temperatur tabelle
+
+REATE TABLE temperature (
+    id int NOT NULL AUTO_INCREMENT,
+    datum DATE,
+    uhrzeit TIME,
+    wert FLOAT,
+    PRIMARY KEY(id)
+);
