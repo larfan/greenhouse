@@ -18,13 +18,12 @@ print('-' * 57)
 # Main program loop.
 while True:
     # Read all the ADC channel values in a list.
-    data=[]
+    
     values = [0]*8  ##dass man sozusagen eine list macht
     for i in range(8):
         # The read_adc function will get the value of the specified channel (0-7).
         values[i] = mcp.read_adc(i)
-        data.append(values[i])
-    for i in range(1):
+    for i in range(2):
         data.append(values[i])
     # Print the ADC values.
     print(data)
