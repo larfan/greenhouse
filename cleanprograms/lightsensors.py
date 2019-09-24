@@ -4,7 +4,7 @@ import statistics
 # Import SPI library (for hardware SPI) and MCP3008 library.
 import Adafruit_GPIO.SPI as SPI
 import Adafruit_MCP3008
-import numpy
+from numpy import interp
 
 #Hardware SPI configuration: ##das ist allgemein für MCP3008
 SPI_PORT   = 0
