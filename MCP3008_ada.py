@@ -19,6 +19,7 @@ print('-' * 57)
 while True:
     # Read all the ADC channel values in a list.
     data=[]
+    values = [0]*8
     for i in range(5):
           ##dass man sozusagen eine list macht
         for i in range(8):
