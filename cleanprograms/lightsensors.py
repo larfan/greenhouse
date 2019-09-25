@@ -11,7 +11,7 @@ SPI_PORT   = 0
 SPI_DEVICE = 0
 mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
 
-while True:
+def lightsensor():
     # Read all the ADC channel values in a list.
     data=[]
     values = [0]*8
@@ -29,6 +29,7 @@ while True:
     print(x)
     print('\n')
     # Pause for half a second.
+    return x
     time.sleep(2)
 
 lightsensor()
