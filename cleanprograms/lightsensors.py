@@ -32,4 +32,4 @@ def lightsensor():
     return x
     time.sleep(2)
 
-lightsensor()
+print(lightsensor())
