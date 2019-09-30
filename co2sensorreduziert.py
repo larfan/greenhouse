@@ -27,6 +27,7 @@ try:
         
         # loop will exit with Ctrl-C, which raises a KeyboardInterrupt
         while True:
+            print('hello')
             #Send "read value" command to MH-Z19 sensor
             result=ser.write("xffx01x86x00x00x00x00x00x79")
             time.sleep(0.1)
