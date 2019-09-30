@@ -12,25 +12,25 @@ SPI_DEVICE = 0
 mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
 
 def lightsensor():
-    while True:
-        # Read all the ADC channel values in a list.
-        data=[]
-        values = [0]*8
-        for i in range(5):
-            for i in range(8):
-                # The read_adc function will get the value of the specified channel (0-7).
-                values[i] = mcp.read_adc(i)
-            for i in range(2):
-                data.append(values[i])
-            time.sleep(0.5)
-        # Print the ADC values.
-        x=statistics.mean(data)
-        x=round(interp(x, [0, 1023], [0, 100]),2)
-        print(data)
-        print(x)
-        print('\n')
-        # Pause for half a second.
-        return x
-        time.sleep(2)
-
-print(lightsensor())
+    # Read all the ADC channel values in a list.
+    data=[]
+    values = [0]*8
+    for i in range(5):
+        for i in range(8):
+              # The read_adc function will get the value of the specified channel (0-7).
+            values[i] = mcp.read_adc(i)
+        for i in range(2):
+            data.append(values[i])
+        time.sleep(0.5)
+    # Print the ADC values.
+    x=statistics.mean(data)
+    x=round(interp(x, [0, 1023], [0, 100]),2)
+    print(data)
+    print(x)
+    print('\n')
+    # Pause for half a second.
+    return x
+    time.sleep(2)
+while True:
+    print(lightsensor())
+    time.sleep(2)
