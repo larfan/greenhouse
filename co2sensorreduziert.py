@@ -23,7 +23,7 @@ sys.stderr.write('Trying port %sn' % port)
 try:
     # try to read a line of data from the serial port and parse, parse meint eigentlich nur aufteilen in mehrere s 
     with serial.Serial(port, 9600, timeout=2.0) as ser:
-        
+        print('hello')
         
         # loop will exit with Ctrl-C, which raises a KeyboardInterrupt
         while True:
