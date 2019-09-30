@@ -29,7 +29,7 @@ try:
         while True:
             print('hello')
             #Send "read value" command to MH-Z19 sensor
-            result=ser.write("xffx01x86x00x00x00x00x00x79")
+            result=ser.write("\xff\x01\x86\x00\x00\x00\x00\x00\x79")
             time.sleep(0.1)
             s=ser.read(9)       #read 9 bytes(von pyserialdocumentation)
             print(s)
