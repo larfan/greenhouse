@@ -31,6 +31,7 @@ try:
             result=ser.write("xffx01x86x00x00x00x00x00x79")
             time.sleep(0.1)
             s=ser.read(9)       #read 9 bytes(von pyserialdocumentation)
+            print(s)
             z=bytearray(s)
             crc=crc8(s)
             #Calculate crc
