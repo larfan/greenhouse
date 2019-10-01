@@ -185,6 +185,7 @@ if __name__ == '__main__':
     print (json.dumps(value))
   else:
     value = read()
+    print('test')
     print (json.dumps(value))
 
 sys.exit(0)
