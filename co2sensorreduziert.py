@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-import serial, os, time, sys, datetime, csv
+import serial, os, time, sys, datetime
 #Function to calculate MH-Z19 crc according to datasheet
 def crc8(a):
     crc=0x00
