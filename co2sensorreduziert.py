@@ -18,7 +18,7 @@ def crc8(a):
 
     # try to open serial port
     
-port='/dev/serial0'
+port='/dev/ttyS0'
 sys.stderr.write('Trying port %sn' % port)
 try:
     # try to read a line of data from the serial port and parse, parse meint eigentlich nur aufteilen in mehrere s 
