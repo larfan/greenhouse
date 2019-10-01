@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import serial, os, time, sys, datetime, csv
 #Function to calculate MH-Z19 crc according to datasheet
@@ -19,7 +19,7 @@ def crc8(a):
     # try to open serial port
     
 port='/dev/ttyS0'
-sys.stderr.write('Trying port %sn' % port)
+sys.stderr.write('Trying port %s' % port)
 try:
     # try to read a line of data from the serial port and parse, parse meint eigentlich nur aufteilen in mehrere s 
     with serial.Serial(port, 9600, timeout=2.0) as ser:
