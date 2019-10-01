@@ -49,7 +49,7 @@ try:
             sleeptime=60-t.second
             time.sleep(sleeptime)
 except Exception as e:
- 
+    print("da ist ein fehler")
     ser.close()
 except KeyboardInterrupt as e:
   
