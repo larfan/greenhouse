@@ -15,9 +15,8 @@ version = "0.3.9"
 pimodel        = getrpimodel.model
 pimodel_strict = getrpimodel.model_strict()
 
- 
-partial_serial_dev = 'ttyS0'
 
+partial_serial_dev = 'ttyAMA0'
 
 serial_dev = '/dev/%s' % partial_serial_dev
 stop_getty = 'sudo systemctl stop serial-getty@%s.service' % partial_serial_dev
