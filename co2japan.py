@@ -62,39 +62,6 @@ def read():
   if result is not None:
     return result
 
-def read_all():
-  p = subprocess.call(stop_getty, stdout=subprocess.PIPE, shell=True)
-  try:
-    ser = connect_serial()
-    while 1:
-      result=ser.write(b"\xff\x01\x86\x00\x00\x00\x00\x00\x79")
-      s=ser.read(9)
-
-      if p_ver == '2':
-        if len(s) >= 9 and s[0] == "\xff" and s[1] == "\x86":
-          return {'co2': ord(s[2])*256 + ord(s[3]),
-                  'temperature': ord(s[4]) - 40,
-                  'TT': ord(s[4]),
-                  'SS': ord(s[5]),
-                  'UhUl': ord(s[6])*256 + ord(s[7])
-                  }
-        break
-      else:
-        if len(s) >= 9 and s[0] == 0xff and s[1] == 0x86:
-          return {'co2': s[2]*256 + s[3],
-                  'temperature': s[4] - 40,
-                  'TT': s[4],
-                  'SS': s[5],
-                  'UhUl': s[6]*256 + s[7]
-                  }
-        break
-  except:
-     traceback.print_exc()
-
-  p = subprocess.call(start_getty, stdout=subprocess.PIPE, shell=True)
-  if result is not None:
-    return result
-
 def abc_on():
   p = subprocess.call(stop_getty, stdout=subprocess.PIPE, shell=True)
   ser = connect_serial()
