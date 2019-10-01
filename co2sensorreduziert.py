@@ -20,7 +20,7 @@ def crc8(a):
     
 port='/dev/ttyS0'
 sys.stderr.write('Trying port %s' % port)
-try:
+while True:
     # try to read a line of data from the serial port and parse, parse meint eigentlich nur aufteilen in mehrere s 
     with serial.Serial(port, 9600, timeout=2.0) as ser:
         print('hello')
@@ -48,10 +48,10 @@ try:
             t=datetime.datetime.now()
             sleeptime=60-t.second
             time.sleep(sleeptime)
-except Exception as e:
-    print("da ist ein fehler")
-    ser.close()
-except KeyboardInterrupt as e:
+#except Exception as e:
+ #   print("da ist ein fehler")
+  #  ser.close()
+#except KeyboardInterrupt as e:
   
-    ser.close()
+ #   ser.close()
    
