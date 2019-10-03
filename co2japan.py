@@ -121,7 +121,7 @@ def checksum(array):
 if __name__ == '__main__':
 #  value = read()
 #  print (value)
-  parser = argparse.ArgumentParser(
+  parser = argparse.ArgumentParser(#####ab hier ist das das argparse-package   
     description='''return CO2 concentration as object as {'co2': 416}''',
   )
   group = parser.add_mutually_exclusive_group()
