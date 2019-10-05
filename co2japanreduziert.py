@@ -3,7 +3,7 @@ import time
 import subprocess
 import traceback
 import getrpimodel
-import struct
+
 import platform
 import sys
 
@@ -39,14 +39,10 @@ def mh_z19():
       result=ser.write(b"\xff\x01\x86\x00\x00\x00\x00\x00\x79")
       s=ser.read(9)
 
-      if p_ver == '2':
-        if len(s) >= 4 and s[0] == "\xff" and s[1] == "\x86":
-          return {'co2': ord(s[2])*256 + ord(s[3])}
-        break
-      else:
-        if len(s) >= 4 and s[0] == 0xff and s[1] == 0x86:
-          return {'co2': s[2]*256 + s[3]}
-        break
+     
+    if len(s) >= 4 and s[0] == 0xff and s[1] == 0x86:
+        return {'co2': s[2]*256 + s[3]}
+    break
   except:
      traceback.print_exc()
 
@@ -62,13 +58,12 @@ def read():
 
 
 
-def checksum(array):
-  return struct.pack('B', 0xff - (sum(array) % 0x100) + 1)
+
 
 if __name__ == '__main__':
     value = read()
     print('test')
     print(value)
-    print (json.dumps(value))
+    
 
 sys.exit(0)
