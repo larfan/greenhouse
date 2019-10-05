@@ -72,7 +72,7 @@ def checksum(array):
 if __name__ == '__main__':
     value = read()
     print('test')
-    print('value')
+    print(value)
     print (json.dumps(value))
 
 sys.exit(0)
