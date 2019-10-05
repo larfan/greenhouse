@@ -62,8 +62,6 @@ def read():
 
 
 
-def checksum(array):
-  return struct.pack('B', 0xff - (sum(array) % 0x100) + 1)
 
 if __name__ == '__main__':
     value = read()
