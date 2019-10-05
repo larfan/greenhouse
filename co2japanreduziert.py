@@ -18,7 +18,7 @@ stop_getty = 'sudo systemctl stop serial-getty@%s.service' % partial_serial_dev
 start_getty = 'sudo systemctl start serial-getty@%s.service' % partial_serial_dev
 
 # major version of running python
-p_ver = platform.python_version_tuple()[0]
+p_ver = 3
 
 def set_serialdevice(serialdevicename):
   global serial_dev
