@@ -6,13 +6,9 @@ import getrpimodel
 import struct
 import platform
 import sys
-import json
-import os.path
 
-# setting
-version = "0.3.9"
-pimodel        = getrpimodel.model
-pimodel_strict = getrpimodel.model_strict()
+
+
 
 
 partial_serial_dev = 'serial0'
