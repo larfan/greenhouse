@@ -55,12 +55,6 @@ def mh_z19():
   except:
      traceback.print_exc()
 
-def read():
-  p = subprocess.call(stop_getty, stdout=subprocess.PIPE, shell=True)
-  result = mh_z19()
-  p = subprocess.call(start_getty, stdout=subprocess.PIPE, shell=True)
-  if result is not None:
-    return result
 
 def abc_on():
   p = subprocess.call(stop_getty, stdout=subprocess.PIPE, shell=True)
@@ -119,8 +113,9 @@ def checksum(array):
   return struct.pack('B', 0xff - (sum(array) % 0x100) + 1)
 
 if __name__ == '__main__':
-    value = read()
-    print('test')
-    print (json.dumps(value))
+    if mh_z19() is not None:
+        value= mh_z19()
+        print('test')
+        print (json.dumps(value))
 
 sys.exit(0)
