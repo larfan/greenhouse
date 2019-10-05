@@ -5,7 +5,6 @@ import traceback
 import getrpimodel
 import struct
 import platform
-import argparse
 import sys
 import json
 import os.path
@@ -73,6 +72,7 @@ def checksum(array):
 if __name__ == '__main__':
     value = read()
     print('test')
+    print('value')
     print (json.dumps(value))
 
 sys.exit(0)
