@@ -40,6 +40,7 @@ def mh_z19():
       s=ser.read(9)
     if len(s) >= 4 and s[0] == 0xff and s[1] == 0x86:
         return {'co2': s[2]*256 + s[3]}
+        print('testus')
   except:
      traceback.print_exc()      #zeigt wo problem ist
 
