@@ -10,12 +10,6 @@ import sys
 
 
 
-partial_serial_dev = 'serial0'
-
-serial_dev = '/dev/%s' % partial_serial_dev
-stop_getty = 'sudo systemctl stop serial-getty@%s.service' % partial_serial_dev
-start_getty = 'sudo systemctl start serial-getty@%s.service' % partial_serial_dev
-
 
 def connect_serial():
   return serial.Serial(serial_dev,
@@ -26,6 +20,12 @@ def connect_serial():
                         timeout=1.0)
 
 def mh_z19():
+  partial_serial_dev = 'serial0'
+
+  serial_dev = '/dev/%s' % partial_serial_dev
+  stop_getty = 'sudo systemctl stop serial-getty@%s.service' % partial_serial_dev
+  start_getty = 'sudo systemctl start serial-getty@%s.service' % partial_serial_dev
+
   try:
     p = subprocess.call(stop_getty, stdout=subprocess.PIPE, shell=True)
     ser = connect_serial()
