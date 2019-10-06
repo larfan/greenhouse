@@ -11,15 +11,6 @@ import sys
 
 
 
-
-
-def connect_serial():
-  return serial.Serial(serial_dev,
-                        baudrate=9600,
-                        bytesize=serial.EIGHTBITS,
-                        parity=serial.PARITY_NONE,
-                        stopbits=serial.STOPBITS_ONE,
-                        timeout=1.0)
 def mh_z19():
   partial_serial_dev = 'serial0'
 
