@@ -2,7 +2,6 @@ import serial
 import time
 import subprocess
 import traceback
-import platform
 import sys
 
 partial_serial_dev = 'serial0'
