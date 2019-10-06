@@ -64,7 +64,7 @@ def read():
 
 
 
-while True:
+if __name__ == "__main__":
     value = read()
     print('test')
     print (json.dumps(value))
