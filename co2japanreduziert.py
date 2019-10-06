@@ -2,7 +2,6 @@ import serial
 import time
 import subprocess
 import traceback
-import struct
 import platform
 import sys
 
@@ -48,4 +47,4 @@ if __name__ == '__main__':
     print(mh_z19())
     
 
-sys.exit(0)
+sys.exit('ende')
