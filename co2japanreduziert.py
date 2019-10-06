@@ -45,7 +45,6 @@ def mh_z19():
 
 
 if __name__ == '__main__':
-    value = read()
     print('test')
     print(mh_z19())
     
