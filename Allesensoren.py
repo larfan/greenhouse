@@ -25,4 +25,4 @@ class dht_11:     #self-keyword anwenden allgemein bei classes
 
 while True:
   print(dht_11.temperature)
-  time.sleep(2)
+  time.sleep(5)
