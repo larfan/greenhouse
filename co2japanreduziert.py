@@ -2,7 +2,6 @@ import serial
 import time
 import subprocess
 import traceback
-import platform
 import sys
 
 partial_serial_dev = 'serial0'
@@ -43,4 +42,4 @@ if __name__ == '__main__':
     print(mh_z19())
     
 
-sys.exit('ende')
+sys.exit(0)
