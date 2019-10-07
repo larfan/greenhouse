@@ -2,7 +2,7 @@
 
 import Adafruit_DHT
 import time
-import MySQLdb
+
 
 humidity, temperature = Adafruit_DHT.read_retry(11, 4)
 
