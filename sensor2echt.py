@@ -1,11 +1,12 @@
 # /usr/bin/python3
-import sys
+
 import Adafruit_DHT
 import time
+import MySQLdb
 
 humidity, temperature = Adafruit_DHT.read_retry(11, 4)
 
-def Temp_humidity(temperature, humidity): 
+def Temp_humidity(): 
     while True:
 
         humidity, temperature = Adafruit_DHT.read_retry(11, 4)
@@ -16,4 +17,4 @@ def Temp_humidity(temperature, humidity):
                                             #Klammern. % ist veraltet
         #read_retry ist eine Funktion von Adafruit. in common.py ist
         #angegeben dass es 15* probiert mit einem abstand von 2 sek
-Temp_humidity(temperature, humidity)
+        
