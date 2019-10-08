@@ -23,12 +23,14 @@ import time
 class dht_11:     #self-keyword anwenden allgemein bei classes
   humidity, temperature = Adafruit_DHT.read_retry(11, 4)
 
-  def newmeasurments(self):
+  def newmeasurments(self): ##that is a method, it belongs to the function object.
     self.temperature=Adafruit_DHT.read_retry(11, 4)[1]
+    self.humidity=Adafruit_DHT.read_retry(11, 4)[0]
 
 
 while True:
   sensor=dht_11()
   sensor.newmeasurments()
   print(sensor.temperature)
-  time.sleep(5)
+  print(sensor.humidity)
+  time.sleep(5) 
