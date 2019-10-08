@@ -23,6 +23,11 @@ import time
 class dht_11:     #self-keyword anwenden allgemein bei classes
   humidity, temperature = Adafruit_DHT.read_retry(11, 4)
 
+  def newmeasurments(self):
+    self.temperature=Adafruit_DHT.read_retry(11, 4)[1]
+
+
 while True:
+  dht_11=dht_11()
   print(dht_11.temperature)
   time.sleep(5)
