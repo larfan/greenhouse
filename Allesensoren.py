@@ -43,7 +43,7 @@ class lightsensors:
                 # The read_adc function will get the value of the specified channel (0-7).
               self.values[i] = mcp.read_adc(i)
           for i in range(2):          #menge an sensoren
-              self.data.append(values[i])
+              self.data.append(self.values[i])
           time.sleep(0.5)
       # Print the ADC values.
       self.data=statistics.mean(self.data)
