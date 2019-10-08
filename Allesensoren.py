@@ -47,7 +47,7 @@ class lightsensors:
           time.sleep(0.5)
       # Print the ADC values.
       self.data=statistics.mean(self.data)
-      self.data=round(interp(x, [0, 1023], [0, 100]),2) 
+      self.data=round(interp(self.data, [0, 1023], [0, 100]),2) 
 
 
 while True:
