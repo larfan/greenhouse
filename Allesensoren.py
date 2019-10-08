@@ -28,6 +28,7 @@ class dht_11:     #self-keyword anwenden allgemein bei classes
 
 
 while True:
-  #dht_11=dht_11()
-  print(dht_11.temperature)
+  sensor=dht_11()
+  sensor.newmeasurments()
+  print(sensor.temperature)
   time.sleep(5)
