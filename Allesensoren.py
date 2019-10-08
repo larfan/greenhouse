@@ -58,7 +58,7 @@ while True:
   time.sleep(1)
   #licht
   lichtsensor=lightsensors()
-  lichtsensor.medianlight
+  lichtsensor.medianlight()
   print(lichtsensor.data)
 
   time.sleep(1) 
