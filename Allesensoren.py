@@ -73,7 +73,7 @@ class mh_z19:
     def werte(self):
       
       ser.write(b"\xff\x01\x86\x00\x00\x00\x00\x00\x79")
-      time.sleep(0.2)
+      time.sleep(5)
       self.s=ser.read(9)
       
       if self.value is None:
