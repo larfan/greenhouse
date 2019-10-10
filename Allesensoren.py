@@ -71,12 +71,13 @@ class mh_z19:
     s=None   #ich glaube man braucht die variablen nicht
     value={}        #
     def werte(self):
-      subprocess.call(stop_getty, stdout=subprocess.PIPE, shell=True)
-      ser.write(b"\xff\x01\x86\x00\x00\x00\x00\x00\x79")
-      time.sleep(0.2)
-      self.s=ser.read(9)
-      subprocess.call(start_getty, stdout=subprocess.PIPE, shell=True)
-      
+      try:
+        ser.write(b"\xff\x01\x86\x00\x00\x00\x00\x00\x79")
+        time.sleep(0.2)
+        self.s=ser.read(9)
+      except:
+        traceback.print_exc()
+
       if len(self.s) >= 4 and self.s[0] == 0xff and self.s[1] == 0x86:
         self.value= {'co2': self.s[2]*256 + self.s[3]}
       if self.value is None:
@@ -93,7 +94,9 @@ while True:
   print(lichtsensor.data)
   #co2
   co2sensor=mh_z19()
+  p = subprocess.call(stop_getty, stdout=subprocess.PIPE, shell=True)
   co2sensor.werte()
+  p = subprocess.call(start_getty, stdout=subprocess.PIPE, shell=True)
   print(co2sensor.value)
 
   time.sleep(1) 
