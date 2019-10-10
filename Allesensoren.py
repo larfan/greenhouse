@@ -67,16 +67,19 @@ class lightsensors:
       self.data=round(interp(self.data, [0, 1023], [0, 100]),2) 
 
 class mh_z19:
-    result=ser.write(b"\xff\x01\x86\x00\x00\x00\x00\x00\x79")
-    s=ser.read(9)   #ich glaube man braucht die variablen nicht
+    result=None
+    s=None   #ich glaube man braucht die variablen nicht
     value={}        #
     def werte(self):
       subprocess.call(stop_getty, stdout=subprocess.PIPE, shell=True)
+      time.sleep(0.2)
+      ser.write(b"\xff\x01\x86\x00\x00\x00\x00\x00\x79")
+      self.s=ser.read(9)
+      subprocess.call(start_getty, stdout=subprocess.PIPE, shell=True)
       if len(self.s) >= 4 and self.s[0] == 0xff and self.s[1] == 0x86:
         self.value= {'co2': self.s[2]*256 + self.s[3]}
       if self.value is None:
         self.value={'co2 sensor nichts gelesen'}
-      subprocess.call(start_getty, stdout=subprocess.PIPE, shell=True)
 
 while True:
   sensor=dht_11()
