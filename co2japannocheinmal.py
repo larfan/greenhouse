@@ -53,7 +53,7 @@ def mh_z19():
 
 while True:
     p = subprocess.call(stop_getty, stdout=subprocess.PIPE, shell=True)
-    print(mh_z19)
+    print(mh_z19())
     p = subprocess.call(start_getty, stdout=subprocess.PIPE, shell=True)
     time.sleep(5)
 
