@@ -98,4 +98,4 @@ while True:
   p = subprocess.call(start_getty, stdout=subprocess.PIPE, shell=True)
   print(co2sensor.value)
 
-  time.sleep(1) 
+  time.sleep(10) 
