@@ -185,6 +185,7 @@ if __name__ == '__main__':
     print (json.dumps(value))
   else:
     while True:
+      time.sleep(3)
       value = read()
       print('test')
       print (json.dumps(value))
