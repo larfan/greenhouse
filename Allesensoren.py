@@ -72,8 +72,8 @@ class mh_z19:
     value={}        #
     def werte(self):
       subprocess.call(stop_getty, stdout=subprocess.PIPE, shell=True)
-      if len(self.s) >= 4 and s[0] == 0xff and s[1] == 0x86:
-        self.value= {'co2': self.s[2]*256 + s[3]}
+      if len(self.s) >= 4 and self.s[0] == 0xff and self.s[1] == 0x86:
+        self.value= {'co2': self.s[2]*256 + self.s[3]}
       if self.value is None:
         self.value={'co2 sensor nichts gelesen'}
       subprocess.call(start_getty, stdout=subprocess.PIPE, shell=True)
