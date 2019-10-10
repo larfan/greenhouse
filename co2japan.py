@@ -53,12 +53,12 @@ def mh_z19():
           return {'co2': s[2]*256 + s[3]}
         break
   except:
-     traceback.print_exc()
+     traceback.print_exc()##sollte sagen wo ein problem ist wenn eines das ist
 
 def read():
-  p = subprocess.call(stop_getty, stdout=subprocess.PIPE, shell=True)
-  result = mh_z19()
-  p = subprocess.call(start_getty, stdout=subprocess.PIPE, shell=True)
+  p = subprocess.call(stop_getty, stdout=subprocess.PIPE, shell=True) ###das ist dass es das im hintergrund zumacht
+  result = mh_z19()                                                   ###Shell True ist dafür dass er die shell benutzen darf
+  p = subprocess.call(start_getty, stdout=subprocess.PIPE, shell=True)###start-getty ist einfach der normale command
   if result is not None:
     return result
 
@@ -160,7 +160,7 @@ if __name__ == '__main__':
   if args.serial_device is not None:
     set_serialdevice(args.serial_device)
 
-  if args.abc_on:
+  if args.abc_on: ###dazu muss es True sein aufgrund von store_true
     abc_on()
     print ("Set ABC logic as on.")
   elif args.abc_off:
@@ -184,8 +184,9 @@ if __name__ == '__main__':
     value = read_all()
     print (json.dumps(value))
   else:
-    value = read()
-    print('test')
-    print (json.dumps(value))
+    while True:
+      value = read()
+      print('test')
+      print (json.dumps(value))
 
-sys.exit(0)
+sys.exit(0)##sollte beim rausgehen aus dem Prgramm zum Beispiel einfach nur sagen dass es eben richtig rausgegangen ist( man könnte auch einfach irgendeinen string reintun(glaube ich))
