@@ -38,22 +38,24 @@ def mh_z19():
       s=ser.read(9)
       if len(s) >= 4 and s[0] == 0xff and s[1] == 0x86:
         return {'co2': s[2]*256 + s[3]}
+        print('1')
         break
   except:
      traceback.print_exc()##sollte sagen wo ein problem ist wenn eines das ist
 
-def read():
-  p = subprocess.call(stop_getty, stdout=subprocess.PIPE, shell=True) ###das ist dass es das im hintergrund zumacht
-  result = mh_z19()                                                   ###Shell True ist dafür dass er die shell benutzen darf
-  p = subprocess.call(start_getty, stdout=subprocess.PIPE, shell=True)###start-getty ist einfach der normale command
-  if result is not None:
-    return result
+#def read():
+#  p = subprocess.call(stop_getty, stdout=subprocess.PIPE, shell=True) ###das ist dass es das im hintergrund zumacht
+#  result = mh_z19()                                                   ###Shell True ist dafür dass er die shell benutzen darf
+#  p = subprocess.call(start_getty, stdout=subprocess.PIPE, shell=True)###start-getty ist einfach der normale command
+#  if result is not None:
+#    return result
 
 
 while True:
-    value = read()
-    print('test')
-    print (json.dumps(value))
+    p = subprocess.call(stop_getty, stdout=subprocess.PIPE, shell=True)
+    print(mh_z19)
+    p = subprocess.call(start_getty, stdout=subprocess.PIPE, shell=True)
     time.sleep(5)
-      
+
+
 sys.exit(0)##sollte beim rausgehen aus dem Prgramm zum Beispiel einfach nur sagen dass es eben richtig rausgegangen ist( man könnte auch einfach irgendeinen string reintun(glaube ich))
