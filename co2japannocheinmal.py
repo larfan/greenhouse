@@ -2,12 +2,8 @@ import serial
 import time
 import subprocess
 import traceback
-import getrpimodel
-import struct
-import platform
-import argparse
+import argparse##lass argparse drinnen wegen dem Input/Output Error
 import sys
-import json
 import os.path
 
 # setting
