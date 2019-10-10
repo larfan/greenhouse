@@ -67,8 +67,8 @@ class lightsensors:
       self.data=round(interp(self.data, [0, 1023], [0, 100]),2) 
 
 class mh_z19:
-    result=None
-    s=None   #ich glaube man braucht die variablen nicht
+    result=ser.write(b"\xff\x01\x86\x00\x00\x00\x00\x00\x79")
+    s=ser.read(9)   #ich glaube man braucht die variablen nicht
     value={}        #
     def werte(self):
       
