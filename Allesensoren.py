@@ -95,7 +95,7 @@ while True:
   #co2
   co2sensor=mh_z19
   p = subprocess.call(stop_getty, stdout=subprocess.PIPE, shell=True)
-  print(co2sensor.werte())
+  print(co2sensor.werte(self))
   p = subprocess.call(start_getty, stdout=subprocess.PIPE, shell=True)
   time.sleep(5)
 
