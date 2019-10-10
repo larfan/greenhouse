@@ -22,7 +22,8 @@ def mh_z19():
   try:
     p = subprocess.call(stop_getty, stdout=subprocess.PIPE, shell=True)
     ser = serial_settings
-    result=ser.write(b"\xff\x01\x86\x00\x00\x00\x00\x00\x79")
+    result=ser.write(b"\xff\x01\x86\x00\x00\x00\x00\x00\x79")###wahrscheinlich definiert 
+    time.sleep(0.2)
     s=ser.read(9)
     if len(s) >= 4 and s[0] == 0xff and s[1] == 0x86:
         value= {'co2': s[2]*256 + s[3]}
