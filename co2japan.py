@@ -185,9 +185,10 @@ if __name__ == '__main__':
     print (json.dumps(value))
   else:
     while True:
-      time.sleep(3)
+    
       value = read()
       print('test')
       print (json.dumps(value))
+      time.sleep(3)
 
 sys.exit(0)##sollte beim rausgehen aus dem Prgramm zum Beispiel einfach nur sagen dass es eben richtig rausgegangen ist( man könnte auch einfach irgendeinen string reintun(glaube ich))
