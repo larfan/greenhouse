@@ -71,17 +71,16 @@ class mh_z19:
     s=None   #ich glaube man braucht die variablen nicht
     value={}        #
     def werte(self):
-      try:
-        ser.write(b"\xff\x01\x86\x00\x00\x00\x00\x00\x79")
-        time.sleep(0.2)
-        self.s=ser.read(9)
-      except:
-        traceback.print_exc()
-
-      if len(self.s) >= 4 and self.s[0] == 0xff and self.s[1] == 0x86:
-        self.value= {'co2': self.s[2]*256 + self.s[3]}
+      
+      ser.write(b"\xff\x01\x86\x00\x00\x00\x00\x00\x79")
+      time.sleep(0.2)
+      self.s=ser.read(9)
+      
       if self.value is None:
         self.value={'co2 sensor nichts gelesen'}
+      elif len(self.s) >= 4 and self.s[0] == 0xff and self.s[1] == 0x86:
+        self.value= {'co2': self.s[2]*256 + self.s[3]}
+      
 
 while True:
   sensor=dht_11()
