@@ -1,6 +1,7 @@
 
 import time
 import sys
+import urllib.request
 #lightsensor
 import statistics
 
@@ -98,5 +99,9 @@ while True:
   co2sensor.werte()
   p = subprocess.call(start_getty, stdout=subprocess.PIPE, shell=True)
   print(co2sensor.co2level)
-  time.sleep(5)
+
+  #thingspeak
+  urllib.request.urlopen('https://api.thingspeak.com/update?api_key=GZMU3A1FWMNELXG7&field1=0'+str(sensor.temperature))
+  time.sleep(15)
+  urllib.request.urlopen('https://api.thingspeak.com/update?api_key=GZMU3A1FWMNELXG7&field2=0'+str(sensor.humidity))
 
