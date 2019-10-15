@@ -104,4 +104,5 @@ while True:
   urllib.request.urlopen('https://api.thingspeak.com/update?api_key=GZMU3A1FWMNELXG7&field1=0'+str(sensor.temperature))
   time.sleep(15)
   urllib.request.urlopen('https://api.thingspeak.com/update?api_key=GZMU3A1FWMNELXG7&field2=0'+str(sensor.humidity))
-
+  time.sleep(15)
+  urllib.request.urlopen('https://api.thingspeak.com/update?api_key=GZMU3A1FWMNELXG7&field2=0'+str(co2sensor.co2level))
