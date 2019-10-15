@@ -93,7 +93,7 @@ while True:
   lichtsensor.medianlight()
   print(lichtsensor.data)
   #co2
-  co2sensor=mh_z19
+  co2sensor=mh_z19()
   p = subprocess.call(stop_getty, stdout=subprocess.PIPE, shell=True)
   co2sensor.werte()
   p = subprocess.call(start_getty, stdout=subprocess.PIPE, shell=True)
