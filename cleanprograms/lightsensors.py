@@ -19,12 +19,12 @@ def lightsensor():
         for i in range(8):
               # The read_adc function will get the value of the specified channel (0-7).
             values[i] = mcp.read_adc(i)
-        for i in range(2):
+        for i in range(4):          #menge an sensoren
             data.append(values[i])
         time.sleep(0.5)
     # Print the ADC values.
     x=statistics.mean(data)
-    x=round(interp(x, [0, 1023], [0, 100]),2)
+    x=round(interp(x, [0, 1023], [0, 100]),2)   ##interp wandel 0-1023 skal in 0-100 skala um
     print(data)
     print(x)
     print('\n')
